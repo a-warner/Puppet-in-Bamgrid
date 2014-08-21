@@ -1,0 +1,21 @@
+# Example /etc/puppet/hiera.yaml
+
+---
+:backends:
+  - eyaml
+  - yaml
+
+logger:
+  - console
+
+:hierarchy:
+  - "data/%{env}/%{facility}/%{group}/%{server_type}"
+  - "data/%{env}/%{facility}/%{group}/group"
+  - "data/%{env}/%{facility}/base"
+
+:yaml:
+  :datadir: '/etc/puppet'
+
+:eyaml:
+  :datadir: '/etc/puppet'
+  :extension: 'yaml'
