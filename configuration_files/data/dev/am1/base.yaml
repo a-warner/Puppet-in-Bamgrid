@@ -1,0 +1,3 @@
+install:
+  - module: newrelic::sysmond
+  - module: awslogs

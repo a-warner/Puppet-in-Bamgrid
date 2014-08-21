@@ -1,5 +1,4 @@
 install:
-  - module: java::jdk::sun_170u45
   - module: tomcat7
   - type: tomcat7::add_instance
     values:
@@ -13,7 +12,7 @@ install:
         require: Class[Java::Jdk::Sun_170u45]
   - type: tomcat7::deploy_war
     values:
-      location-service-geo-jersey:
-        instance: location-service
+      mlbam.push.notifications:
+        instance: pushweb
         version: latest
         require: Tomcat7::Add_instance[Pushweb]

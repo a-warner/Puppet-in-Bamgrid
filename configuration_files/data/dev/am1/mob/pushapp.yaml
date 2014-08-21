@@ -1,5 +1,4 @@
 install:
-  - module: java::jdk::sun_170u45
   - module: mule3
   - type: mule3::add_instance
     values:
@@ -9,4 +8,5 @@ install:
         maxHeap: 512m
         permSize: 128m
         otherEnvParams: -XX:+UseParallelOldGC
+        version: latest
         require: Class[Java::Jdk::Sun_170u45]

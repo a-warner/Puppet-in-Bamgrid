@@ -1,2 +1,3 @@
 install:
+  - module: java::jdk::sun_170u45
   - module: users::aws::mobile
