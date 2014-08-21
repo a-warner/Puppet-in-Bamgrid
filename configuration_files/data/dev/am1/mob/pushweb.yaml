@@ -1,0 +1,19 @@
+install:
+  - module: java::jdk::sun_170u45
+  - module: tomcat7
+  - type: tomcat7::add_instance
+    values:
+      pushweb:
+        javaHome: /usr/java/jdk1.7.0_45
+        minHeap: 256m
+        maxHeap: 512m
+        permSize: 128m
+        port: 9780
+        otherEnvParams: -XX:+UseParallelOldGC
+        require: Class[Java::Jdk::Sun_170u45]
+  - type: tomcat7::deploy_war
+    values:
+      location-service-geo-jersey:
+        instance: location-service
+        version: latest
+        require: Tomcat7::Add_instance[Pushweb]
